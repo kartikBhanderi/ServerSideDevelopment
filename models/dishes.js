@@ -43,7 +43,7 @@ const dishSchema = new Schema({
     },
     label : {
         type: String,
-        rdefault: ''
+        default: ''
     },
     price : {
         type: Currency,
