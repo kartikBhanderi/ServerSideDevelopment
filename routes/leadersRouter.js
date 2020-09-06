@@ -27,7 +27,7 @@ leadersRouter.route('/')
         res.statusCode = 200;
         res.setHeader('Content-Type' , 'application/json');
         res.json(leader);
-    } , (err) => nect(err))
+    } , (err) => next(err))
     .catch((err) => next(err));
 })
 .put((req , res , next) => {
