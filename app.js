@@ -31,12 +31,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
-app.use(express.json()); // //
+//app.use(express.json()); // //
 app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser('12345-67890-09876-54321'));
 
 app.use(session({
-  name : 'session-id',
+  name : 'session-id1',
   secret : '12345-67890-09876-54321',
   saveUnitialized : false,
   resave : false,
@@ -49,14 +49,14 @@ app.use(passport.session());
 //authorization
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 
 function auth(req , res , next){
   
   if(!req.user)
   {  
     var err = new Error('You are not authenticated!1');
-    err.status = 401; 
+    err.status = 403; 
     return next(err);
   }
   else

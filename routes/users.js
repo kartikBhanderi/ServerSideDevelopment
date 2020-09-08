@@ -1,12 +1,12 @@
 // var express = require('express');
 const router = require('express').Router();
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 var User = require('../models/users'); 
 var passport = require('passport');
 
 // const router = express.Router();
 
-// router.use(bodyParser.json());
+router.use(bodyParser.json());
 
 
 /* GET users listing. */
@@ -20,7 +20,7 @@ router.post('/signup' , function(req , res , next) {
 
     if(err)
     {
-      res.statusCode = 200;
+      res.statusCode = 500;
       res.setHeader('Content-Type','application/json');
       res.json({err : err});
     }
@@ -47,7 +47,7 @@ router.get('/logout' , (req , res , next) => {
   {
     console.log('---------------------------Logging out');
     req.session.destroy();
-    res.clearCookie('session-id');
+    res.clearCookie('session-id1');
     //req.logOut();
     res.redirect('/');
   }
